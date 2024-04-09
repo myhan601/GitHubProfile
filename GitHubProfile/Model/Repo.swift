@@ -7,13 +7,14 @@
 
 import Foundation
 
-struct Repo {
+struct Repo: Decodable {
     let repoName: String
-    let devLangName: String
+    let devLangName: String?
+    
+    enum CodingKeys: String, CodingKey {
+        case repoName = "name"
+        case devLangName = "language"
+    }
 }
 
-extension Repo {
-    static let sampleData: [Repo] = [
-        Repo(repoName: "GitHubRepository", devLangName: "Swift")
-    ]
-}
+
