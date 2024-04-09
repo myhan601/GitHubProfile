@@ -11,12 +11,15 @@ import Kingfisher
 
 class ViewController: UIViewController {
     
+    let repoManager = RepoManager()
     var repos: [Repo] = [] // Repo 타입의 배열
     let username = "myhan601"
 
     @IBOutlet weak var userId: UILabel!
     @IBOutlet weak var repoTableView: UITableView!
     @IBOutlet weak var profileImage: UIImageView!
+    @IBOutlet weak var followersLabel: UILabel!
+    @IBOutlet weak var followingLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,31 +32,33 @@ class ViewController: UIViewController {
         repoTableView.dataSource = self
         
         fetchRepos(for: username)
-        fetchUserProfile()
+        updateUserProfileUI(for: username)
     }
     
-    func fetchUserProfile() {
-        let urlString = "https://api.github.com/users/\(username)"
-        AF.request(urlString).responseJSON { [weak self] response in
-            if let data = response.data {
-                do {
-                    // JSON 디코딩
-                    let user = try JSONDecoder().decode(UserProfile.self, from: data)
-                    // 프로필 이미지 URL 로드
-                    if let profileImageUrl = URL(string: user.avatarUrl) {
-                        DispatchQueue.main.async {
-                            self?.profileImage.kf.setImage(with: profileImageUrl)
-                        }
+    func updateUserProfileUI(for username: String) {
+        let userProfileManager = UserProfileManager()
+        userProfileManager.fetchUserProfile(for: username) { [weak self] result in
+            switch result {
+            case .success(let userProfile):
+                DispatchQueue.main.async {
+                    // 프로필 이미지 업데이트
+                    if let profileImageUrl = URL(string: userProfile.avatarUrl) {
+                        self?.profileImage.kf.setImage(with: profileImageUrl)
                     }
-                } catch {
-                    print(error)
+                    // 팔로워 수 업데이트
+                    self?.followersLabel.text = "Followers: \(userProfile.followers)"
+                    // 팔로잉 수 업데이트
+                    self?.followingLabel.text = "Following: \(userProfile.following)"
                 }
+            case .failure(let error):
+                print(error)
             }
         }
     }
+
+
     
     func fetchRepos(for username: String) {
-        let repoManager = RepoManager()
         repoManager.fetchRepos(for: username) { [weak self] result in
             switch result {
             case .success(let repos):

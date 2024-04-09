@@ -11,6 +11,7 @@
 		AB5610142BC54E6A00CC8844 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = AB5610132BC54E6A00CC8844 /* Kingfisher */; };
 		AB5610162BC550C800CC8844 /* RepoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5610152BC550C800CC8844 /* RepoManager.swift */; };
 		AB5610182BC5565D00CC8844 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5610172BC5565D00CC8844 /* UserProfile.swift */; };
+		AB56101A2BC559B500CC8844 /* UserProfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = AB5610192BC559B500CC8844 /* UserProfileManager.swift */; };
 		ABFC7B292BC4F2C30075FDB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFC7B282BC4F2C30075FDB1 /* AppDelegate.swift */; };
 		ABFC7B2B2BC4F2C30075FDB1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFC7B2A2BC4F2C30075FDB1 /* SceneDelegate.swift */; };
 		ABFC7B2D2BC4F2C30075FDB1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFC7B2C2BC4F2C30075FDB1 /* ViewController.swift */; };
@@ -25,6 +26,7 @@
 /* Begin PBXFileReference section */
 		AB5610152BC550C800CC8844 /* RepoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoManager.swift; sourceTree = "<group>"; };
 		AB5610172BC5565D00CC8844 /* UserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		AB5610192BC559B500CC8844 /* UserProfileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileManager.swift; sourceTree = "<group>"; };
 		ABFC7B252BC4F2C30075FDB1 /* GitHubProfile.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GitHubProfile.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABFC7B282BC4F2C30075FDB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ABFC7B2A2BC4F2C30075FDB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				ABFC7B442BC518070075FDB1 /* Repo.swift */,
 				AB5610152BC550C800CC8844 /* RepoManager.swift */,
 				AB5610172BC5565D00CC8844 /* UserProfile.swift */,
+				AB5610192BC559B500CC8844 /* UserProfileManager.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -204,6 +207,7 @@
 				ABFC7B422BC511EB0075FDB1 /* RepoTableViewCell.swift in Sources */,
 				ABFC7B452BC518070075FDB1 /* Repo.swift in Sources */,
 				ABFC7B292BC4F2C30075FDB1 /* AppDelegate.swift in Sources */,
+				AB56101A2BC559B500CC8844 /* UserProfileManager.swift in Sources */,
 				ABFC7B2B2BC4F2C30075FDB1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
