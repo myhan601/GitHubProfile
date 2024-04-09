@@ -13,6 +13,9 @@
 		ABFC7B302BC4F2C30075FDB1 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = ABFC7B2F2BC4F2C30075FDB1 /* Base */; };
 		ABFC7B322BC4F2C50075FDB1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABFC7B312BC4F2C50075FDB1 /* Assets.xcassets */; };
 		ABFC7B352BC4F2C50075FDB1 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = ABFC7B342BC4F2C50075FDB1 /* Base */; };
+		ABFC7B422BC511EB0075FDB1 /* RepoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFC7B402BC511EB0075FDB1 /* RepoTableViewCell.swift */; };
+		ABFC7B432BC511EB0075FDB1 /* RepoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = ABFC7B412BC511EB0075FDB1 /* RepoTableViewCell.xib */; };
+		ABFC7B452BC518070075FDB1 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = ABFC7B442BC518070075FDB1 /* Repo.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +27,9 @@
 		ABFC7B312BC4F2C50075FDB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		ABFC7B342BC4F2C50075FDB1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ABFC7B362BC4F2C50075FDB1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		ABFC7B402BC511EB0075FDB1 /* RepoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoTableViewCell.swift; sourceTree = "<group>"; };
+		ABFC7B412BC511EB0075FDB1 /* RepoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RepoTableViewCell.xib; sourceTree = "<group>"; };
+		ABFC7B442BC518070075FDB1 /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +62,50 @@
 		ABFC7B272BC4F2C30075FDB1 /* GitHubProfile */ = {
 			isa = PBXGroup;
 			children = (
+				ABFC7B3C2BC503870075FDB1 /* Model */,
+				ABFC7B3D2BC503900075FDB1 /* View */,
+				ABFC7B3E2BC503990075FDB1 /* Controller */,
 				ABFC7B282BC4F2C30075FDB1 /* AppDelegate.swift */,
 				ABFC7B2A2BC4F2C30075FDB1 /* SceneDelegate.swift */,
-				ABFC7B2C2BC4F2C30075FDB1 /* ViewController.swift */,
-				ABFC7B2E2BC4F2C30075FDB1 /* Main.storyboard */,
 				ABFC7B312BC4F2C50075FDB1 /* Assets.xcassets */,
 				ABFC7B332BC4F2C50075FDB1 /* LaunchScreen.storyboard */,
 				ABFC7B362BC4F2C50075FDB1 /* Info.plist */,
 			);
 			path = GitHubProfile;
+			sourceTree = "<group>";
+		};
+		ABFC7B3C2BC503870075FDB1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				ABFC7B442BC518070075FDB1 /* Repo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ABFC7B3D2BC503900075FDB1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				ABFC7B3F2BC503B10075FDB1 /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		ABFC7B3E2BC503990075FDB1 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				ABFC7B2E2BC4F2C30075FDB1 /* Main.storyboard */,
+				ABFC7B2C2BC4F2C30075FDB1 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		ABFC7B3F2BC503B10075FDB1 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				ABFC7B402BC511EB0075FDB1 /* RepoTableViewCell.swift */,
+				ABFC7B412BC511EB0075FDB1 /* RepoTableViewCell.xib */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,6 +167,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABFC7B322BC4F2C50075FDB1 /* Assets.xcassets in Resources */,
+				ABFC7B432BC511EB0075FDB1 /* RepoTableViewCell.xib in Resources */,
 				ABFC7B352BC4F2C50075FDB1 /* Base in Resources */,
 				ABFC7B302BC4F2C30075FDB1 /* Base in Resources */,
 			);
@@ -139,6 +181,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABFC7B2D2BC4F2C30075FDB1 /* ViewController.swift in Sources */,
+				ABFC7B422BC511EB0075FDB1 /* RepoTableViewCell.swift in Sources */,
+				ABFC7B452BC518070075FDB1 /* Repo.swift in Sources */,
 				ABFC7B292BC4F2C30075FDB1 /* AppDelegate.swift in Sources */,
 				ABFC7B2B2BC4F2C30075FDB1 /* SceneDelegate.swift in Sources */,
 			);
