@@ -26,7 +26,4 @@ class TableViewCell: UITableViewCell {
         repoNameLabel.text = repoData.repoName
         devLanguageName.text = repoData.devLangName
     }
-    
 }
-
-
