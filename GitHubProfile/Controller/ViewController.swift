@@ -14,7 +14,8 @@ class ViewController: UIViewController {
     let repoManager = RepoManager()
     var repos: [Repo] = [] // Repo 타입의 배열
     let username = "myhan601"
-
+    let refreshControl = UIRefreshControl()
+    
     @IBOutlet weak var userId: UILabel!
     @IBOutlet weak var repoTableView: UITableView!
     @IBOutlet weak var profileImage: UIImageView!
@@ -33,6 +34,12 @@ class ViewController: UIViewController {
         
         fetchRepos(for: username)
         updateUserProfileUI(for: username)
+        
+        // refreshControl에 액션 추가
+        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
+        
+        // tableView의 refreshControl로 지정
+        repoTableView.refreshControl = refreshControl
     }
     
     func updateUserProfileUI(for username: String) {
@@ -55,8 +62,16 @@ class ViewController: UIViewController {
             }
         }
     }
-
-
+    @objc func refreshData() {
+        // 필요한 데이터를 새로 고침
+        fetchRepos(for: username)
+        updateUserProfileUI(for: username)
+        
+        // 1초 딜레이 후 리프레쉬 종료
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { // 1초 딜레이
+            self.refreshControl.endRefreshing()
+        }
+    }
     
     func fetchRepos(for username: String) {
         repoManager.fetchRepos(for: username) { [weak self] result in
@@ -71,7 +86,6 @@ class ViewController: UIViewController {
             }
         }
     }
-
 }
 
 extension ViewController: UITableViewDelegate {
@@ -83,13 +97,13 @@ extension ViewController: UITableViewDelegate {
 extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return repos.count
-        }
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "RepoTableViewCell", for: indexPath) as? TableViewCell else { return UITableViewCell() }
         
-        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "RepoTableViewCell", for: indexPath) as? TableViewCell else { return UITableViewCell() }
-            
-            cell.setData(repos[indexPath.row])
-            
-            return cell
-        }
+        cell.setData(repos[indexPath.row])
+        
+        return cell
+    }
 }
